@@ -17,6 +17,7 @@ typedef struct {
 typedef int Status ;
 typedef int ElemType ;
 
+Status ListDelete(Sqlist * l, int i , ElemType * e);
 int  ListLength(Sqlist la);
 void GetElem(Sqlist la , int i , int * e);
 void unionlist (Sqlist  * la, Sqlist lb);
@@ -86,4 +87,19 @@ void print(Sqlist la){
 	for (  ; i < la.length ; i ++ ){
 		printf("%d\n", la.elem[i]);
 	}
+}
+Status ListDelete(Sqlist * l, int i , ElemType * e){
+	int  * p , * q ;
+	if(i < 1 || i > l -> length){
+		return ERROR;
+	}
+	 p = &(l->elem[i-1]);
+	* e   = *p ;
+	q = l->elem + l->length -1 ;
+	for( ++p ; p <= q; ++p ){
+		*(p - 1) = * p;
+	}
+	-- l->length ;
+	return OK;
+	
 }

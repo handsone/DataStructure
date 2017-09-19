@@ -1,5 +1,5 @@
-unionlist : unionlist.c
-	cc unionlist.c -o unionlist && ./unionlist
-mergelist : mergelist.c
-	cc mergelist.c -o mergelist && ./mergelist
+unionlist : Unionlist.c
+	cc Unionlist.c -o Unionlist && ./Unionlist
+mergelist : Mergelist.c
+	cc Mergelist.c -o Mergelist && ./Mergelist
 

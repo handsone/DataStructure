@@ -1,5 +1,4 @@
 # include "Sqlist.h"
-
 int main(){
 	Sqlist la ;
 	Sqlist lb ;
