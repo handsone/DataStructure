@@ -50,15 +50,18 @@ Status equal(int a , int b){
 	}
 	return FALSE ;
 }
-Status   LocateList(Sqlist  la, int e , int (* p)(int a, int b)){
+Status   LocateList(Sqlist  la, int e , int (* compare)(int a, int b)){
 	int i = 1 ;
-	int flag = FALSE ;
-	for (; i <= la.length ; i ++){
-		if( p(la.elem[i-1], e) ){
-			flag = TRUE;
-		}
+	int * p = la.elem ;
+	while( i <= la.length &&!(*compare)(* p++, e) ){
+		++i ;
 	}
-	return flag ;
+	if( i <= la.length ){
+		return i ;
+	}
+	else {
+		return  0;
+	}
 }
 
 Status  InsertList(Sqlist * la, int i , int e){

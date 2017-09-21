@@ -1,9 +1,7 @@
 # include "Sqlist.h"
-
 int main(){
 	Sqlist la ;
 	Sqlist lb ;
-	int e = 0 ;
 	int a[10] = {1,2,3,4,5,6,7,8,9,10};
 	int b[10] = {3,4,5,0,7,8,9,0,12,23};
 	la.elem = a ;
@@ -13,9 +11,6 @@ int main(){
 	la.sizeoflist = LIST_INIT_SIZE ;
 	lb.sizeoflist = LIST_INIT_SIZE ;
 	unionlist(&la, lb);
-	print(la);
-	ListDelete(&la, 1, &e);
-	printf("\n");
 	print(la);
 	return 0 ;
 }
