@@ -1,0 +1,55 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CreateList_L	Linklist/Linklist.h	/^void CreateList_L(LinkList * L, int n ){$/;"	f
+ERROR	Linklist/Linklist.h	10;"	d
+ERROR	Sqlist/Sqlist.h	11;"	d
+ElemType	Linklist/Linklist.h	/^typedef int ElemType ;$/;"	t
+ElemType	Sqlist/Sqlist.h	/^typedef int ElemType ;$/;"	t
+FALSE	Linklist/Linklist.h	7;"	d
+FALSE	Sqlist/Sqlist.h	8;"	d
+GetElem	Linklist/Linklist.h	/^Status GetElem(LinkList l, int i, ElemType *e){$/;"	f
+GetElem	Sqlist/Sqlist.h	/^void GetElem(Sqlist la, int i , int *e ){$/;"	f
+InsertList	Sqlist/Sqlist.h	/^Status  InsertList(Sqlist * la, int i , int e){$/;"	f
+LISTINCREMENT	Linklist/Linklist.h	5;"	d
+LISTINCREMENT	Sqlist/Sqlist.h	6;"	d
+LIST_INIT_SIZE	Linklist/Linklist.h	9;"	d
+LIST_INIT_SIZE	Sqlist/Sqlist.h	10;"	d
+LNode	Linklist/Linklist.h	/^typedef struct LNode{$/;"	s
+LNode	Linklist/Linklist.h	/^}LNode, *LinkList;$/;"	t	typeref:struct:LNode
+LinkList	Linklist/Linklist.h	/^}LNode, *LinkList;$/;"	t	typeref:struct:LNode
+LinkListLength	Linklist/Linklist.h	/^int LinkListLength(LinkList La){$/;"	f
+ListDelete	Sqlist/Sqlist.h	/^Status ListDelete(Sqlist * l, int i , ElemType * e){$/;"	f
+ListDelete_L	Linklist/Linklist.h	/^Status ListDelete_L(LinkList L, int i, ElemType * e){$/;"	f
+ListInsert_L	Linklist/Linklist.h	/^Status ListInsert_L(LinkList L, int i, ElemType e){$/;"	f
+ListLength	Sqlist/Sqlist.h	/^int ListLength(Sqlist la){$/;"	f
+LocateElem	Linklist/Linklist.h	/^Status LocateElem(LinkList L, ElemType e , int (*p )(int i , int j)){$/;"	f
+LocateList	Sqlist/Sqlist.h	/^Status   LocateList(Sqlist  la, int e , int (* compare)(int a, int b)){$/;"	f
+MergeList_L	Linklist/Linklist.h	/^void MergeList_L(LinkList *  La, LinkList  * Lb, LinkList *  Lc){$/;"	f
+OK	Linklist/Linklist.h	8;"	d
+OK	Sqlist/Sqlist.h	9;"	d
+OVERFLOW	Linklist/Linklist.h	4;"	d
+OVERFLOW	Sqlist/Sqlist.h	5;"	d
+Print	Linklist/Linklist.h	/^void Print(LinkList La){$/;"	f
+Sqlist	Sqlist/Sqlist.h	/^} Sqlist ;$/;"	t	typeref:struct:__anon1
+Status	Linklist/Linklist.h	/^typedef int Status ;$/;"	t
+Status	Sqlist/Sqlist.h	/^typedef int Status ;$/;"	t
+TRUE	Linklist/Linklist.h	6;"	d
+TRUE	Sqlist/Sqlist.h	7;"	d
+Union	Linklist/Linklist.h	/^void Union(LinkList * La, LinkList Lb){$/;"	f
+compare	Linklist/Linklist.h	/^int compare(int i ,int j ){$/;"	f
+data	Linklist/Linklist.h	/^	ElemType data;$/;"	m	struct:LNode
+elem	Sqlist/Sqlist.h	/^	int * elem ;$/;"	m	struct:__anon1
+equal	Sqlist/Sqlist.h	/^Status equal(int a , int b){$/;"	f
+length	Sqlist/Sqlist.h	/^	int length ;$/;"	m	struct:__anon1
+main	Linklist/MergeList.c	/^int main (){$/;"	f
+main	Linklist/Union.c	/^int main (){$/;"	f
+main	Sqlist/Mergelist.c	/^int main(){$/;"	f
+main	Sqlist/Unionlist.c	/^int main(){$/;"	f
+next	Linklist/Linklist.h	/^	struct LNode  * next;$/;"	m	struct:LNode	typeref:struct:LNode::LNode
+print	Sqlist/Sqlist.h	/^void print(Sqlist la){$/;"	f
+sizeoflist	Sqlist/Sqlist.h	/^	int sizeoflist ;$/;"	m	struct:__anon1
+unionlist	Sqlist/Sqlist.h	/^void unionlist (Sqlist  * la, Sqlist lb){$/;"	f

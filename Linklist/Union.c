@@ -1,11 +1,11 @@
 # include "Linklist.h"
 int main (){
 
-	LinkList La = CreatLink();
-	LinkList Lb = CreatLink();
-	//Print(La);
-	//Print(Lb);
-	Union(La, *Lb);
+	LinkList La;
+	LinkList Lb;
+	CreateList_L(&La, 5);
+	CreateList_L(&Lb, 5);
+	Union(&La, Lb);
 	Print(La);
 	return 0 ;
 }

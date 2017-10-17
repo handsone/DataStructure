@@ -19,13 +19,13 @@ typedef int Status ;
  * 函数声明
  */
 int LinkListLength(LinkList La);
-void Union(LinkList La, LNode Lb);
+void Union(LinkList *  La, LinkList Lb);
 void Print(LinkList La);
-void MergeList_L(LinkList La, LinkList Lb, LinkList Lc);
+void MergeList_L(LinkList *  La, LinkList *  Lb, LinkList *  Lc);
 Status GetElem(LinkList l, int i, ElemType *e);
 Status ListInsert_L(LinkList L, int i, ElemType e);
 Status ListDelete_L(LinkList L, int i, ElemType * e);
-LinkList CreatLink(void);
+void CreateList_L(LinkList * L, int n);
 Status LocateElem(LinkList L, ElemType e , int (*p )(int i , int j));
 /*
  * 函数实现
@@ -57,14 +57,14 @@ int LinkListLength(LinkList La){
 	}
 	return i ;
 }
-void Union(LinkList La, LNode Lb){
-	int La_len =  LinkListLength(La);
-	int Lb_len =  LinkListLength(&Lb);
+void Union(LinkList * La, LinkList Lb){
+	int La_len =  LinkListLength(*La);
+	int Lb_len =  LinkListLength(Lb);
 	int i  , e ;
 	for(i = 1 ;  i <= Lb_len ; i ++){
-		GetElem(&Lb, i , &e);
-		if(!LocateElem(La, e,compare)){
-			ListInsert_L(La, ++La_len , e);
+		GetElem(Lb, i , &e);
+		if(!LocateElem(*La, e,compare)){
+			ListInsert_L(*La, ++La_len , e);
 		}
 	}
 }
@@ -74,35 +74,26 @@ void Print(LinkList La){
 		printf("%d\t", La->data);
 	}
 }
-LinkList CreatLink(void){
-	LinkList head     ;
-	LinkList  q , p   ;
-	int i  ;
-	head = (LinkList )malloc(sizeof(LNode));
-	head -> next = NULL ;
-	p = (LinkList )malloc(sizeof(LNode));
-	q = head ;
-	p ->next = NULL ;
-	scanf("%d", &i);
-	while(i != -1){
-		p ->data = i ;
-		q ->next = p ;
-		q  = p ;
-		p = (LinkList )malloc(sizeof(LNode));
-		scanf("%d", &i);
+void CreateList_L(LinkList * L, int n ){
+	*L = (LinkList)malloc(sizeof(LNode));
+	int i = 0 ;
+	LinkList p ; 
+	(*L) ->next = NULL ;
+	for ( i = n ; i > 0 ; --i ){
+		p = (LinkList)malloc(sizeof(LNode));
+		scanf("%d", &p ->data);
+		p->next = (*L) ->next ;
+		(*L)->next = p        ;
 	}
-	q ->next = NULL ;
-	return head ;
 }
 
-
-void MergeList_L(LinkList La, LinkList Lb, LinkList Lc){
+void MergeList_L(LinkList *  La, LinkList  * Lb, LinkList *  Lc){
 	//已知单链表La,Lb的元素按值非递减排序
 	//归并La,Lb得到新的单链表Lc,Lc的元素也按值非递减排序
-	LinkList pa = La->next ;
-	LinkList pb = Lb->next ;
+	LinkList pa = (*La)->next ;
+	LinkList pb = (*Lb)->next ;
 	LinkList pc  ;
-	 Lc =  pc = La  ;
+	 *Lc =  pc = *La  ;
 	while (pa && pb){
 		if(pa ->data <= pb->data){
 			pc ->next = pa ;
@@ -116,8 +107,8 @@ void MergeList_L(LinkList La, LinkList Lb, LinkList Lc){
 		}
 	}
 	pc -> next = pa? pa : pb ;
-	free(Lb);
-	Print(Lc);
+	free(*Lb);
+	Print(*Lc);
 }
 Status ListDelete_L(LinkList L, int i, ElemType * e){
 	LinkList p = L ;
