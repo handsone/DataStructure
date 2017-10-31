@@ -19,11 +19,32 @@ typedef struct {
 	int stacksize ;
 }SqStack;
 
+void   printfInformation( SqStack S);
+Status DestroyStack( SqStack *S);
 char   SeachMach(int e);
 Status Pop(SqStack *S, SElemType *e);
 Status InitStack(SqStack * S);
 Status Push(SqStack *S, SElemType e);
+Status ClearStack(SqStack *S);
 Status StackEmpty(SqStack S);
+void LineEdit(){
+	SqStack S ;
+	int c ;
+	InitStack(&S);
+	printf("请输入数据:\n");
+	char ch = getchar();
+	while(ch != '!'){
+		switch(ch){
+			case '#':Pop(&S,&c);break ;
+			case '@':ClearStack(&S);break;
+			default : Push(&S,ch);
+			}
+		ch = getchar();
+		}
+	printf("最终的数据是:\n");
+	printfInformation(S);
+	DestroyStack(&S);
+}
 
 Status StackEmpty(SqStack S){
 	if(S.top == S.base ){
@@ -87,3 +108,20 @@ char   SeachMach(int e){
 	return flag ;
 }
 
+Status ClearStack(SqStack *S){
+	(*S).top = (*S).base ;
+	(*S).stacksize =  0 ; 
+	return OK; 
+}
+
+Status DestroyStack( SqStack *S){
+	free((*S).base);
+	(*S).stacksize = 0 ;
+	return OK;
+}
+void printfInformation(SqStack S){
+	while(S.base != S.top){
+		printf("%c", *S.base);
+		S.base ++ ;
+	}
+}

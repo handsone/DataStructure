@@ -2,8 +2,9 @@
 int main(){
 	SqStack S ;
 	int i  , e ; 
-	char  String[10], flag ;
-	printf("请输入括号表达式\n");
+	char flag ;
+	char  String[10];
+	printf("请输入括号表达式:\n");
 	scanf("%s", String);
 	InitStack(&S);
 	Push(&S, *String);
